@@ -2,353 +2,185 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg-color: #f5f7fa;
-      --text-color: #222;
-      --card-bg: #ffffff;
-      --accent: #4f46e5;
-    }
-
-    body.dark {
-      --bg-color: #0f172a;
-      --text-color: #e5e7eb;
-      --card-bg: #1e293b;
-      --accent: #38bdf8;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      scroll-behavior: smooth;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-    }
-
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: var(--card-bg);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 40px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-      z-index: 1000;
-    }
-
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 20px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: 500;
-    }
-
-    nav a:hover {
-      color: var(--accent);
-    }
-
-    .toggle-btn {
-      cursor: pointer;
-      border: none;
-      padding: 6px 12px;
-      border-radius: 6px;
-      background: var(--accent);
-      color: #fff;
-    }
-
-    section {
-      padding: 100px 40px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      color: var(--accent);
-    }
-
-    #home {
-      display: flex;
-      align-items: center;
-      gap: 40px;
-      min-height: 100vh;
-    }
-
-    .home-text h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
-
-    .home-text p {
-      font-size: 1.1rem;
-      max-width: 500px;
-    }
-
-    .home-img img {
-      width: 220px;
-      border-radius: 50%;
-      border: 4px solid var(--accent);
-    }
-
-    .card {
-      background: var(--card-bg);
-      padding: 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      max-width: 500px;
-    }
-
-    input, textarea {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      background: var(--accent);
-      color: white;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--card-bg);
-    }
-       @media (max-width: 768px) {
-      #home {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
-@media (max-width: 600px) {
-
-  nav {
-    padding: 12px 20px;
-    flex-wrap: wrap;
-  }
-
-  nav ul {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 10px;
-  }
-
-  section {
-    padding: 90px 20px;
-  }
-
-  h2 {
-    font-size: 1.6rem;
-    text-align: center;
-  }
-
-  #home {
-    flex-direction: column;
-    text-align: center;
-    gap: 25px;
-  }
-
-  .home-text h1 {
-    font-size: 1.9rem;
-  }
-
-  .home-text p {
-    font-size: 1rem;
-  }
-
-  .home-img img {
-    width: 180px;
-    height: 180px;
-    object-fit: cover;
-  }
-
-  .card {
-    padding: 18px;
-  }
-
-  form {
-    max-width: 100%;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 900px) {
-
-  section {
-    padding: 100px 30px;
-  }
-
-  #home {
-    gap: 30px;
-  }
-
-  .home-text h1 {
-    font-size: 2.2rem;
-  }
-
-  .home-img img {
-    width: 200px;
-    height: 200px;
-  }
-}
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-<nav>
-  <h3>MyPortfolio</h3>
-  <ul>
-    <li><a href="#home">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-  <button class="toggle-btn" onclick="toggleTheme()">🌙</button>
-</nav>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo">MyPortfolio</h1>
+      <div class="menu-toggle" id="menu-toggle">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
 
-<section id="home">
-  <div class="home-text">
-    <h1>Hi, I'm <span style="color:var(--accent)">Arellano, Josh P.</span></h1>
-    <p>Aspiring Web Developer | IT Student</p>
-    <p>"Building simple solutions with clean code."</p>
-  </div>
-  <div class="home-img">
-    <img src="images/profile.jpg" alt="My Profile Photo">
+<ul class="nav-links" id="nav-links">
 
-  </div>
-</section>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button id="theme-toggle">🌙</button>
+    </nav>
+  </header>
 
-<section id="about">
-  <h2>About Me</h2>
-  <div class="card">
-    <p><strong>Education:</strong> BS in Information Technology – 2nd Year</p>
-    <p><strong>Interests:</strong> Web Development, Networking</p>
-    <p><strong>Hobbies:</strong> Coding, Gaming, Learning new tech</p>
-    <p>I enjoy turning ideas into functional and user-friendly applications.</p>
-  </div>
-</section>
-
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills-grid">
-    <div class="card">
-      <h4>Programming</h4>
-      <p>HTML, C, CSS, JavaScript, Python</p>
+  <!-- Home Section -->
+  <section id="home" class="section home">
+    <div class="home-content">
+      <img src="profile.jpg" alt="Profile Picture" class="profile-img">
+      <h2>Aspiring Web Developer | IT Student</h2>
+      <p>
+        “Building simple ideas into functional digital solutions.”
+      </p>
+      <p>
+        Explore my projects, skills, and journey in technology.
+      </p>
     </div>
-    <div class="card">
-      <h4>Tools</h4>
-      <p>Git, GitHub, VS Code, Linux</p>
-    </div>
-    <div class="card">
-      <h4>Technical Areas</h4>
-      <p>Web Development, Databases, Networking</p>
-    </div>
-    <div class="card">
-      <h4>Soft Skills</h4>
-      <p>Teamwork, Problem-Solving, Communication</p>
-    </div>
-  </div>
-</section>
+  </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="projects-grid">
-    <div class="card">
-      <h4>Student Management System</h4>
-      <p>A simple CRUD system for managing student records.</p>
-      <p><strong>Role:</strong> Frontend & Logic</p>
-      <p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
-    </div>
-
-    <div class="card">
-      <h4>Moviehouse App</h4>
-      <p>A console-based app for managing movies.</p>
-      <p><strong>Role:</strong> Developer</p>
-      <p><strong>Tools:</strong> Python</p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <h2>Contact Me</h2>
-  <div class="card">
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea rows="4" placeholder="Your Message"></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-    <br>
-    <p>Email: pepitojosh86@gmail.com</p>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <h2>About Me</h2>
     <p>
-      GitHub: <a href="#" target="_blank">github.com/Joshiiwu</a><br>
-      Facebook: <a href="#" target="_blank">facebook.com/itsmejoshiwu</a>
+      I am a second-year Information Technology student with a strong interest
+      in web development and programming.
     </p>
+    <p>
+      I enjoy learning how websites work, solving problems through code,
+      and collaborating with others on technical projects.
+    </p>
+    <p>
+      <strong>Hobbies:</strong> Coding, listening to music, exploring new tech.
+    </p>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <h2>Skills</h2>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <p>HTML, CSS, JavaScript, Python, C</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Tools</h3>
+        <p>Git, GitHub, VS Code, Linux</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Technical Areas</h3>
+        <p>Web Development, Databases, Networking Basics</p>
+      </div>
+
+      <div class="skill-card">
+        <h3>Soft Skills</h3>
+        <p>Teamwork, Communication, Problem-Solving</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <h2>Projects</h2>
+
+    <div class="projects-grid">
+  <div class="project-card">
+    <div class="project-icon">💻</div>
+    <h3>Student Record System</h3>
+    <p>
+      A simple console-based system that allows adding, viewing,
+      and deleting student records.
+    </p>
+    <p><strong>Role:</strong> Programmer</p>
+    <p><strong>Tools:</strong> C, Python</p>
   </div>
-</section>
 
-<footer>
-  <p>© 2025 Your Name. All Rights Reserved.</p>
-</footer>
+  <div class="project-card">
+    <div class="project-icon">🌐</div>
+    <h3>Personal Portfolio Website</h3>
+    <p>
+      A responsive single-page portfolio built to showcase my skills,
+      projects, and background.
+    </p>
+    <p><strong>Role:</strong> Frontend Developer</p>
+    <p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
+  </div>
+</div>
 
-<script>
-  const body = document.body;
+  </section>
 
-  function toggleTheme() {
-    body.classList.toggle("dark");
-    localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
-  }
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Me</h2>
 
-  if (localStorage.getItem("theme") === "dark") {
-    body.classList.add("dark");
-  }
-</script>
+    <form
+  action="mailto:pepitojosh86@gmail.com?subject=Portfolio Contact Message"
+  method="POST"
+  enctype="text/plain"
+  class="contact-form"
+>
 
+  <input
+    type="text"
+    name="name"
+    placeholder="Your Name"
+    required
+  />
+
+  <input
+    type="email"
+    name="email"
+    placeholder="Your Email"
+    required
+  />
+
+  <textarea
+    name="message"
+    placeholder="Your Message"
+    required
+  ></textarea>
+
+  <button type="submit">Send Message</button>
+</form>
+
+
+    <div class="contact-info">
+  <p>
+    📧 Gmail:
+    <a href="mailto:pepitojosh86@gmail.com">
+      pepitojosh86@gmail.com
+    </a>
+  </p>
+
+  <p>
+    💻 GitHub:
+    <a href="https://github.com/Joshiiwu" target="_blank" rel="noopener noreferrer">
+      github.com/Joshiiwu
+    </a>
+  </p>
+
+  <p>
+    📘 Facebook:
+    <a href="https://facebook.com/itsmejoshiwu" target="_blank" rel="noopener noreferrer">
+      facebook.com/itsmejoshiwu
+    </a>
+  </p>
+</div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 My Portfolio</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
