@@ -276,3 +276,9 @@ footer {
 .friend-card h3 {
   font-size: 1rem;
 }
+
+.role-text {
+  font-size: 0.85rem;
+  opacity: 0.8;
+  margin-top: 5px;
+}
