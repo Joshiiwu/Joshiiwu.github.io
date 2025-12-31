@@ -1,16 +1,24 @@
 :root {
-  --primary: #700000;
+  --primary: #ac75db;
   --bg: #ffffff;
   --text: #1a1a1a;
   --card: #f4f4f4;
 }
 
 body.dark {
-  --primary: #1c2d34;
+  --primary: #393e51;
   --bg: #0f1a1f;
   --text: #ffffff;
   --card: #1e2a30;
 }
+
+.home-content:hover .glow-text {
+  text-shadow:
+    0 0 10px var(--primary),
+    0 0 20px var(--primary),
+    0 0 35px var(--primary);
+}
+
 
 * {
   margin: 0;
@@ -285,6 +293,8 @@ footer {
   margin-top: 5px;
 }
 
+
+
 /* ===== INSPIRATION SECTION ===== */
 .inspiration {
   text-align: center;
@@ -325,29 +335,27 @@ footer {
 .glow-text {
   color: var(--primary);
   text-shadow:
-    0 0 4px rgba(112, 0, 0, 0.5),
-    0 0 8px rgba(112, 0, 0, 0.4),
-    0 0 14px rgba(112, 0, 0, 0.3);
+    0 0 2px rgba(172, 117, 219, 0.6),
+    0 0 4px rgba(172, 117, 219, 0.5),
+    0 0 6px rgba(172, 117, 219, 0.4);
 }
 
-/* WHITE GLOW IN DARK MODE */
+/* Light mode: subtle glow */
+body:not(.dark) .glow-text {
+  text-shadow:
+    0 0 2px rgba(172, 117, 219, 0.5),
+    0 0 4px rgba(172, 117, 219, 0.3);
+}
+
+/* Dark mode: stronger glow */
 body.dark .glow-text {
   color: #ffffff;
   text-shadow:
-    0 0 6px rgba(255, 255, 255, 0.8),
-    0 0 12px rgba(255, 255, 255, 0.6),
-    0 0 24px rgba(255, 255, 255, 0.5),
-    0 0 36px rgba(255, 255, 255, 0.3);
+    0 0 6px rgba(57, 62, 81, 0.8),
+    0 0 12px rgba(57, 62, 81, 0.6),
+    0 0 25px rgba(57, 62, 81, 0.5);
 }
 
-
-/* Stronger glow in dark mode */
-body.dark .glow-text {
-  text-shadow:
-    0 0 6px rgba(28, 45, 52, 0.8),
-    0 0 12px rgba(28, 45, 52, 0.6),
-    0 0 25px rgba(28, 45, 52, 0.5);
-}
 
 .social-icons {
   margin-top: 20px;
@@ -370,4 +378,51 @@ body.dark .glow-text {
 body.dark p,
 body.dark li {
   color: #e0e0e0;
+}
+
+/* ===== PROFILE HOVER ANIMATION ===== */
+.profile-img {
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.08) rotate(2deg);
+  box-shadow: 0 0 25px var(--primary);
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.profile-img {
+  animation: float 4s ease-in-out infinite;
+}
+
+.profile-img:hover {
+  animation: pulseGlow 1.5s infinite;
+}
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px var(--primary); }
+  50% { box-shadow: 0 0 30px var(--primary); }
+  100% { box-shadow: 0 0 10px var(--primary); }
+}
+
+/* ===== HAMBURGER MENU ANIMATION ===== */
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.menu-toggle span {
+  transition: all 0.4s ease;
 }
