@@ -320,3 +320,54 @@ footer {
   font-weight: 500;
   color: var(--primary);
 }
+
+/* ===== GLOW TEXT ===== */
+.glow-text {
+  color: var(--primary);
+  text-shadow:
+    0 0 4px rgba(112, 0, 0, 0.5),
+    0 0 8px rgba(112, 0, 0, 0.4),
+    0 0 14px rgba(112, 0, 0, 0.3);
+}
+
+/* WHITE GLOW IN DARK MODE */
+body.dark .glow-text {
+  color: #ffffff;
+  text-shadow:
+    0 0 6px rgba(255, 255, 255, 0.8),
+    0 0 12px rgba(255, 255, 255, 0.6),
+    0 0 24px rgba(255, 255, 255, 0.5),
+    0 0 36px rgba(255, 255, 255, 0.3);
+}
+
+
+/* Stronger glow in dark mode */
+body.dark .glow-text {
+  text-shadow:
+    0 0 6px rgba(28, 45, 52, 0.8),
+    0 0 12px rgba(28, 45, 52, 0.6),
+    0 0 25px rgba(28, 45, 52, 0.5);
+}
+
+.social-icons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.3s, filter 0.3s;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 8px var(--primary));
+}
+
+body.dark p,
+body.dark li {
+  color: #e0e0e0;
+}
